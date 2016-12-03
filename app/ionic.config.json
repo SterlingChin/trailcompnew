@@ -1,0 +1,13 @@
+{
+  "name": "Tabs Default",
+  "app_id": "3ecc31d1",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}

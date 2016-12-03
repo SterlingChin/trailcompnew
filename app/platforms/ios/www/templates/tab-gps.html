@@ -1,0 +1,39 @@
+<ion-view view-title="GPS">
+  <ion-content ng-controller="gpsCtrl">
+    <ion-pane style="background-image: url('./img/hikingBackground2.jpg')">
+      <!-- main controller declared here-->
+      <div style="text-align:center; font-family:jura">
+        <h3><span style="font-family: jura">Current Position</span></h3>
+        <p>Latitude : {{lat}} </p>
+        <p>Longitude : {{long}} </p>
+        <p>Time : {{timestamp}} </p>
+        <!-- <p>{{errors}}</p> -->
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ui-sref="app.gallery"  ng-click="startPoint()">
+         Set Parking / Start Point
+       </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
+              Set Pin
+            </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
+                   Set Destination Point
+                 </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
+                   View Current Map
+                 </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
+                   Past Maps
+                 </button>
+      </div>
+    </ion-pane>
+  </ion-content>
+</ion-view>

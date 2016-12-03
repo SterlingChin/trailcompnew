@@ -1,0 +1,79 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/jura/jura-v7-latin-regular.eot');
+  src: local('Jura Regular'), local('Jura-Regular'), url('../fonts/jura/jura-v7-latin-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/jura/jura-v7-latin-regular.woff2') format('woff2'), url('../fonts/jura/jura-v7-latin-regular.woff') format('woff'), url('../fonts/jura/jura-v7-latin-regular.ttf') format('truetype'), url('../fonts/jura/jura-v7-latin-regular.svg') format('svg');
+}
+@font-face {
+  font-family: 'fontawesome';
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+        url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.tff') format('truetype'), url('../fonts/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// .background {
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   margin: auto;
+//   height: 100%;
+// }
+//
+// .row-center {
+//   height: 100%;
+// }
+//
+// .home-font {
+//   font-family: 'Jura';
+// }
+//
+// .jura {
+//   font-family: 'Jura';
+// }
+//
+// .tabs .tab-item .icon.Home {
+//   font-family: 'fontawesome';
+//   content: "\f007"
+//
+// }
+//
+// .pin-point {
+//   font-family: 'fontawesome';
+//   content: 'f08d';
+// }
+//
+// #map {
+//   width: 100%;
+//   height: 100%;
+//   background-color: grey;
+// }
+// .scroll {
+//   height: 100%;
+// }
