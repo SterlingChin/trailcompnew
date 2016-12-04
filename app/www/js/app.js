@@ -28,7 +28,8 @@ angular.module('trail', ['ionic', 'ngCordova'])
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html'
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'homeCtrl'
       }
     }
   })
@@ -37,7 +38,8 @@ angular.module('trail', ['ionic', 'ngCordova'])
     url: '/gps',
     views: {
       'tab-gps': {
-        templateUrl: 'templates/tab-gps.html'
+        templateUrl: 'templates/tab-gps.html',
+        controller: 'gpsCtrl'
       }
     }
   })
@@ -46,7 +48,8 @@ angular.module('trail', ['ionic', 'ngCordova'])
     url: '/map',
     views: {
       'tab-map': {
-        templateUrl: 'templates/tab-map.html'
+        templateUrl: 'templates/tab-map.html',
+        // controller: 'mapCtrl'
       }
     }
   })
@@ -56,6 +59,25 @@ angular.module('trail', ['ionic', 'ngCordova'])
     views: {
       'tab-help': {
         templateUrl: 'templates/tab-help.html',
+      }
+    }
+  })
+  
+    .state('tab.user', {
+    url: '/user',
+    views: {
+      'tab-user': {
+        templateUrl: 'templates/tab-user.html',
+        controller:'userCtrl'
+      }
+    }
+  })
+  
+      .state('tab.usinggps', {
+    url: '/usinggps',
+    views: {
+      'tab-user': {
+        templateUrl: 'templates/tab-usinggps.html'
       }
     }
   });

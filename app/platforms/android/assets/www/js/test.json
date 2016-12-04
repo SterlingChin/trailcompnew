@@ -1,0 +1,40 @@
+{
+  "coord": {
+    "lon": -111.66,
+    "lat": 40.23
+  },
+  "weather": [{
+    "id": 800,
+    "main": "Clear",
+    "description": "clear sky",
+    "icon": "01n"
+  }],
+  "base": "stations",
+  "main": {
+    "temp": 23.72,
+    "pressure": 1025,
+    "humidity": 92,
+    "temp_min": 12.2,
+    "temp_max": 32
+  },
+  "visibility": 16093,
+  "wind": {
+    "speed": 8.05,
+    "deg": 180
+  },
+  "clouds": {
+    "all": 1
+  },
+  "dt": 1480828500,
+  "sys": {
+    "type": 1,
+    "id": 2828,
+    "message": 0.0084,
+    "country": "US",
+    "sunrise": 1480862020,
+    "sunset": 1480896039
+  },
+  "id": 5780026,
+  "name": "Provo",
+  "cod": 200
+}
