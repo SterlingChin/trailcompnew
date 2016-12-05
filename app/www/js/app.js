@@ -49,16 +49,16 @@ angular.module('trail', ['ionic', 'ngCordova'])
     views: {
       'tab-map': {
         templateUrl: 'templates/tab-map.html',
-        // controller: 'mapCtrl'
+        // controller: 'mapsCtrl'
       }
     }
   })
 
-  .state('tab.help', {
-    url: '/help',
+  .state('tab.info', {
+    url: '/info',
     views: {
-      'tab-help': {
-        templateUrl: 'templates/tab-help.html',
+      'tab-info': {
+        templateUrl: 'templates/tab-info.html',
       }
     }
   })
@@ -73,14 +73,21 @@ angular.module('trail', ['ionic', 'ngCordova'])
     }
   })
   
-      .state('tab.usinggps', {
+      .state('usinggps', {
     url: '/usinggps',
-    views: {
-      'tab-user': {
-        templateUrl: 'templates/tab-usinggps.html'
-      }
-    }
-  });
+    templateUrl: 'templates/tab-usinggps.html',
+    controller: 'contentCtrl'
+    })
+
+         .state('yourdata', {
+    url: '/yourdata',
+    templateUrl: 'templates/tab-yourdata.html'
+    })
+
+    .state('thedevs', {
+    url: '/thedevs',
+    templateUrl: 'templates/tab-developer.html'
+    });
   //
   // .state('tab.chat-detail', {
   //   url: '/chats/:chatId',

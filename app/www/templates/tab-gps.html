@@ -1,26 +1,28 @@
 <ion-view view-title='GPS Tracking' hide-nav-bar="true">
   <ion-content>
-    <ion-pane style="background-image: url('./img/hikingBackground2.jpg')">
-      <!-- main controller declared here-->
-      <div style="text-align:center; font-family:jura">
-        <h3><span style="font-family: jura"> Current Position </span></h3>
+    <ion-pane class="padding background" style="background-image: url('./img/mainBackground.jpg')">
+      <div class='padding home-font' style="text-align:center; font-family:jura">
+        <h3><span class='home-font'> Current Position </span></h3>
         <p>Latitude : {{lat}} </p>
         <p>Longitude : {{long}} </p>
-        <p>Time : {{timestamp}} </p>
-        <!-- <p>{{errors}}</p> -->
+      </div>
+        <div id="container">
+        <button class="button button-block button-dark home-font"  ng-click="gpsPing()">
+        Ping GPS
+        </button>
       </div>
       <div id="container">
-        <button class="button button-block button-dark home-font" ui-sref="app.gallery"  ng-click="startPoint()">
+        <button class="button button-block button-dark home-font" g-click="startPoint()">
         Start GPS Tracking
         </button>
       </div>
       <div id="container">
-        <button class="button button-block button-dark home-font" ui-sref="app.gallery" ng-click="setPoint()">
+        <button class="button button-block button-dark home-font" ng-click="setPoint()">
           Set Manual Pin
         </button>
       </div>
       <div id="container">
-        <button class="button button-block button-dark home-font" ui-sref="app.gallery" ng-click="stopPoint()">
+        <button class="button button-block button-dark home-font" ng-click="stopPoint()">
           End GPS Tracking
         </button>
       </div>
@@ -29,16 +31,8 @@
           View Current Map
         </button>
       </div>
-      <!-- <div id="container">
-        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
-          Past Maps
-        </button>
-      </div> -->
-      <div id="container">
-        <button class="button button-block button-dark home-font" ui-sref="app.gallery" href='#/tabs/usinggps.html'>
-          Using GPS Tracking
-        </button>
-      </div>
+        <a ui-sref="usinggps" class="button button-block button-dark home-font">
+          Using GPS</a>
     </ion-pane>
   </ion-content>
 </ion-view>

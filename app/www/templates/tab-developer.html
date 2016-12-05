@@ -1,23 +1,15 @@
-<ion-view view-title='About the Developer' hide-nav-bar="true">
+<ion-view view-title='Your Data'>
   <ion-content>
-    <ion-pane style="background-image: url('./img/helpBackground.jpg')" class="background help-background" >
+    <ion-pane style="background-image: url('./img/mainBackground.jpg')" class="padding background help-background">
       <div>
-      <ion-scroll zooming="false" scrollbar-x="false">
-      
-        <h2 class="home-font padding text-center help-background">Info</h2>
-        <button class="button button-block button-dark home-font icon-right ion-chevron-right">Using GPS</button>
-            <!--<p class="home-font padding help-background">Tapping "Start Point" will place a pin on the map of your current location.  This will also start the automatic timer.  Every 5 minutes your phone will drip a GPS pin on your map.  By choosing "Current Map" you can see your current map with all the pins placed on it.<br><br>
-If you'd like to set a manual pin, press "Set Manual Pin."  You'll be prompted to enter a note so you can remember what you pinned.  These are great for points of interest or landmarks.<br><br>
-To end your GPS tracking, simply press "End GPS Tracking."  Your map and pins will be saved in your phone until you choose to delete the map.
-</p>-->
-        <button class="button button-block button-dark home-font icon-right ion-chevron-right">Your Data</button>
-        <!--<h4 class="home-font padding help-background">Your Data</h4>
-<p class="home-font padding help-background">The goal with Trail Companion is to make sure you are never alone while in the back country.  We use your GPS on your phone to store your location every 5 minutes even if you don't have cell service. <br><br>
-But, we never store your information.  Security is our number one priority.  All the GPS data is saved locally on the phone and you have complete control over your data.  We don't store any GPS data in our servers. <br>
-</p>-->
-<button class="button button-block button-dark home-font icon-right ion-chevron-right">About the Developers</button>
-</div>
-</ion-scroll>
+        <h4 class="home-font padding help-background">About the Devs</h4>
+        <p class="home-font padding help-background">
+          The goal with Trail Companion is to make sure you are never alone while in the back country. We use your GPS on your
+          phone to store your location every 5 minutes even if you don't have cell service. <br><br> 
+          But, we never store your information. Security is our number one priority. All the GPS data is saved locally on the phone and you have complete control over your data. We don't store any GPS data in our servers. <br>
+        </p>
+        <button class="button button-block button-dark home-font icon-left ion-chevron-left" ui-sref="tab.info">Back</button>
+      </div>
     </ion-pane>
   </ion-content>
 </ion-view>

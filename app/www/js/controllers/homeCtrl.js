@@ -1,22 +1,25 @@
-angular.module('trail').controller('homeCtrl', function($scope, mainSvc, $interval) {
+angular.module('trail').controller('homeCtrl', function($scope, $cordovaGeolocation, mainSvc, $interval) {
  $scope.updateWeather = function(){
-    //  var geoSettings = {
-    //   frequency: 3000,
-    //   timeout: 5000,
-    //   enableHighAccuracy: true
-    // };
 
-    // var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
+  $scope.gpsPing = function () {
+    var geoSettings = {
+      frequency: 3000,
+      timeout: 5000,
+      enableHighAccuracy: true
+    };
 
-    // geo.then(function(position) {
-    //     $scope.lat = mainSvc.location.lat = position.coords.latitude;
-    //     $scope.long = mainSvc.location.long = position.coords.longitude;
+    var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
 
-    //   },
-    //   function error(err) {
-    //     $scope.errors = err;
-    //   }
-    // );
+    geo.then(function (position) {
+        $scope.lat =  position.coords.latitude;
+        $scope.long = position.coords.longitude;
+
+      },
+      function error(err) {
+        $scope.errors = err;
+      }
+    );
+  };
     mainSvc.getWeather(mainSvc.location.lat, mainSvc.location.long).then(function(weatherObject) {
     // mainSvc.getWeather().then(function(weatherObject) {
         $scope.weatherTemp = weatherObject.currentTemp;
