@@ -3,13 +3,11 @@ angular.module('trail').directive('map', function() {
     restrict: 'E',
     scope: {
       onCreate: '&',
-      lat: "=",
-      long: "="
     },
     link: function ($scope, $element, $attr) {
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng($scope.lat, $scope.long),
+          center: new google.maps.LatLng(40.22622305, -111.6608091),
 
           zoom: 16,
           mapTypeId: google.maps.MapTypeId.SATELLITE
