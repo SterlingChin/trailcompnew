@@ -49,7 +49,7 @@ angular.module('trail', ['ionic', 'ngCordova'])
     views: {
       'tab-map': {
         templateUrl: 'templates/tab-map.html',
-        // controller: 'mapsCtrl'
+        controller: 'mapsCtrl'
       }
     }
   })

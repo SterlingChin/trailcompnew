@@ -12,8 +12,8 @@
         </button>
       </div>
       <div id="container">
-        <button class="button button-block button-dark home-font" g-click="startPoint()">
-        Start GPS Tracking
+        <button class="button button-block button-dark home-font" ng-click="startPoint(); setPoint()">
+        {{button}}
         </button>
       </div>
       <div id="container">
@@ -21,11 +21,11 @@
           Set Manual Pin
         </button>
       </div>
-      <div id="container">
+      <!--<div id="container">
         <button class="button button-block button-dark home-font" ng-click="stopPoint()">
           End GPS Tracking
         </button>
-      </div>
+      </div>-->
       <div id="container">
         <button class="button button-block button-dark home-font" ui-sref="app.gallery">
           View Current Map
