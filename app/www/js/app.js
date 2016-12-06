@@ -48,8 +48,8 @@ angular.module('trail', ['ionic', 'ngCordova'])
     url: '/map',
     views: {
       'tab-map': {
-        templateUrl: 'templates/tab-map.html',
-        controller: 'mapsCtrl'
+        templateUrl: 'templates/tab-map.html'
+        // controller: 'mapsCtrl'
       }
     }
   })

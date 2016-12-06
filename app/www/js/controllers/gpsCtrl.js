@@ -1,4 +1,4 @@
-angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocation, $interval, $ionicPopup, mainSvc) { 
+angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocation, $ionicPopup, mainSvc) { 
 // flag true  = tracking started
 // flag false = tracking stopped
   var flag = false;
@@ -8,6 +8,10 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 // |                       GPS Ping                       |
 // |------------------------------------------------------|
     $scope.gpsPing = function () {
+    //   $scope.loading = $ionicLoading.show({
+    //   content: 'Getting current location...',
+    //   showBackdrop: false
+    // });
     var geoSettings = {
       frequency: 3000,
       timeout: 5000,
