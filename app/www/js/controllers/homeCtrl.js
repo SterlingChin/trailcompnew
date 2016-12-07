@@ -1,4 +1,4 @@
-angular.module('trail').controller('homeCtrl', function($scope, mainSvc) {
+angular.module('trail').controller('homeCtrl', function($scope, $cordovaGeolocation, mainSvc) {
    $scope.gpsHomePing = function () {
     var geoSettings = {
       frequency: 3000,
