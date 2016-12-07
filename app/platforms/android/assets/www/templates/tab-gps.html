@@ -1,0 +1,37 @@
+<ion-view view-title='GPS Tracking' hide-nav-bar="true">
+  <ion-content>
+    <ion-pane class="padding background" style="background-image: url('./img/mainBackground.jpg')">
+      <div class='padding home-font' style="text-align:center; font-family:jura">
+        <h3><span class='home-font'> Current Position </span></h3>
+        <p>Latitude : {{lat}} </p>
+        <p>Longitude : {{long}} </p>
+        <!--{{test}}-->
+      </div>
+
+
+      <div></div>
+        <div id="container">
+        <button class="button button-block button-dark home-font"  ng-click="gpsPing()">
+        Ping GPS
+        </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ng-click="startPoint(); setPoint()">
+        {{button}}
+        </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ng-click="setPoint()">
+          Set Manual Pin
+        </button>
+      </div>
+      <div id="container">
+        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
+          View Current Map
+        </button>
+      </div>
+        <a ui-sref="usinggps" class="button button-block button-dark home-font">
+          Using GPS</a>
+    </ion-pane>
+  </ion-content>
+</ion-view>
