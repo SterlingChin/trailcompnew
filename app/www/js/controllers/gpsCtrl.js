@@ -1,24 +1,17 @@
-angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocation, $interval, mainSvc) { 
+angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocation, $ionicPopup, mainSvc) { 
 // flag true  = tracking started
 // flag false = tracking stopped
   var flag = false;
   $scope.button = "Start GPS Tracking";
-  // var geoSettings = {
-  //     frequency: 3000,
-  //     timeout: 5000,
-  //     enableHighAccuracy: true
-  //   };
-  // var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
-   var intervalPin = function() {
-    $scope.setPoint();
-  };
 
 // |------------------------------------------------------|
 // |                       GPS Ping                       |
 // |------------------------------------------------------|
-
-  $interval(function() {
-
+    $scope.gpsPing = function () {
+    //   $scope.loading = $ionicLoading.show({
+    //   content: 'Getting current location...',
+    //   showBackdrop: false
+    // });
     var geoSettings = {
       frequency: 3000,
       timeout: 5000,
@@ -27,30 +20,30 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
     var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
 
-    geo.then(function(position) {
+    geo.then(function (position) {
         $scope.lat = mainSvc.location.lat = position.coords.latitude;
         $scope.long = mainSvc.location.long = position.coords.longitude;
-
-
       },
       function error(err) {
         $scope.errors = err;
       }
     );
-  }, 1000);
- 
-  // $interval(function() {
-  //   geo.then(function(position) {
-  //       $scope.lat = mainSvc.location.lat = position.coords.latitude;
-  //       $scope.long = mainSvc.location.long = position.coords.longitude;
-  //     },
-  //     function error(err) {
-  //       $scope.errors = err;
-  //     }
-  //   );
-  // }, 1000);
+    console.log('Working');
+  }; 
+// |------------------------------------------------------|
+// |                       GPS Core                       |
+// |------------------------------------------------------|
 
-    $scope.gpsPing = function () {
+  var gpsCore = function () {
+    $scope.setPoint();
+    var geoSettings = {
+      frequency: 3000,
+      timeout: 5000,
+      enableHighAccuracy: true
+    };
+
+    var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
+
     geo.then(function (position) {
         $scope.lat = mainSvc.location.lat = position.coords.latitude;
         $scope.long = mainSvc.location.long = position.coords.longitude;
@@ -58,20 +51,8 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       function error(err) {
         $scope.errors = err;
       }
-    )}; 
-// |------------------------------------------------------|
-// |                       GPS Core                       |
-// |------------------------------------------------------|
-
-  var gpsCore = function () {
-    geo.then(function (position) {
-        $scope.lat = mainSvc.location.lat = position.coords.latitude;
-        $scope.long = mainSvc.location.long = position.coords.longitude;
-      },
-      function error(err) {
-        $scope.errors = err;
-      });
-    $scope.setPoint();
+    );
+    console.log('Working');
   };
 
 // |------------------------------------------------------|
@@ -85,7 +66,7 @@ if(!flag){
       long: $scope.long,
       start_point: true
     }).then(function (res) {});
-    $scope.interval = setInterval(intervalPin, 5000); // 5 minute intervals = 300000; 10 minute intervals = 600000
+    $scope.interval = setInterval(gpsCore, 5000); // 5 minute intervals = 300000; 10 minute intervals = 600000
   flag = true;
   $scope.button = "Stop GPS Tracking"
   } else {

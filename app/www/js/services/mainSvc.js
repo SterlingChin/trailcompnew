@@ -4,6 +4,30 @@ angular.module('trail').service('mainSvc', function($http) {
   // |------------------------------------------------------|
   // |                      GPS Service                     |
   // |------------------------------------------------------|
+  //     this.gpsPingSvc = function () {
+  //   //   $scope.loading = $ionicLoading.show({
+  //   //   content: 'Getting current location...',
+  //   //   showBackdrop: false
+  //   // });
+  //   var geoSettings = {
+  //     frequency: 3000,
+  //     timeout: 5000,
+  //     enableHighAccuracy: true
+  //   };
+
+  //   var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
+
+  //   geo.then(function (position) {
+  //       location.lat = position.coords.latitude;
+  //       location.long = position.coords.longitude;
+  //       console.log(this.location);
+  //       return location;
+  //     },
+  //     function error(err) {
+  //       $scope.errors = err;
+  //     });
+  //   console.log('Working');
+  // }; 
 
   this.startGPS = function(startCoords) {
     // console.log(startCoords);

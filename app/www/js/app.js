@@ -46,7 +46,6 @@ angular.module('trail', ['ionic', 'ngCordova'])
     views: {
       'tab-map': {
         templateUrl: 'templates/tab-map.html'
-        // controller: 'mapsCtrl'
       }
     }
   })
@@ -59,7 +58,7 @@ angular.module('trail', ['ionic', 'ngCordova'])
       }
     }
   })
-  
+
     .state('tab.user', {
     url: '/user',
     views: {
@@ -69,7 +68,7 @@ angular.module('trail', ['ionic', 'ngCordova'])
       }
     }
   })
-  
+
       .state('usinggps', {
     url: '/usinggps',
     templateUrl: 'templates/tab-usinggps.html',
