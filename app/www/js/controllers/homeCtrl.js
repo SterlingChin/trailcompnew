@@ -13,21 +13,11 @@ angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeoloca
   // };
 
   $scope.updateWeather = function () {
-    $scope.loading = $ionicLoading.show({
-      content: 'Getting current location...',
-      showBackdrop: false
-    });
-    setTimeout(getWeather, 1000);
-    setTimeout(getForecast, 1000);
+    // setTimeout(mainSvc.getWeather, 2000);
+    // setTimeout(mainSvc.getForecast, 2000);
     geo.then(function (position) {
         $scope.lat = position.coords.latitude;
         $scope.long = position.coords.longitude;
-        $scope.loading.hide();
-      },
-      function error(err) {
-        $scope.errors = err;
-      });
-
     mainSvc.getWeather($scope.lat, $scope.long).then(function (weatherObject) {
       $scope.weatherTemp = weatherObject.currentTemp;
       $scope.weatherDesc = weatherObject.currentDesc;
@@ -44,5 +34,9 @@ angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeoloca
       $scope.forecastTempLow2 = forecastObject.tempLow2;
       $scope.forecastDesc2 = forecastObject.desc2;
     });
+      },
+      function error(err) {
+        $scope.errors = err;
+      });
   };
 });
