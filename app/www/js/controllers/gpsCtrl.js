@@ -1,12 +1,6 @@
 angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocation, $ionicPopup, $interval, mainSvc) {
-  var geoSettings = {
-    frequency: 3000,
-    timeout: 5000,
-    enableHighAccuracy: true
-  },
-  geo = $cordovaGeolocation.getCurrentPosition(geoSettings),
+  var geo = $cordovaGeolocation.getCurrentPosition({ frequency: 3000, timeout: 5000, enableHighAccuracy: true}),
   intervalPin = function () {
-    console.log('Working');
     $scope.setPoint();
   }, flag = false;
   // flag true  = tracking started
@@ -14,11 +8,11 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
   
   $scope.button = "Start GPS Tracking";
   $scope.test = "This is working";
+  
   $interval(function () {
     geo.then(function (position) {
-        $scope.lat = mainSvc.location.lat = position.coords.latitude;
-        $scope.long = mainSvc.location.long = position.coords.longitude;
-
+        $scope.lat = position.coords.latitude;
+        $scope.long = position.coords.longitude;
       },
       function error(err) {
         $scope.errors = err;
@@ -41,8 +35,8 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
     var geo = $cordovaGeolocation.getCurrentPosition(geoSettings);
 
     geo.then(function (position) {
-        $scope.lat = mainSvc.location.lat = position.coords.latitude;
-        $scope.long = mainSvc.location.long = position.coords.longitude;
+        $scope.lat = position.coords.latitude;
+        $scope.long = position.coords.longitude;
       },
       function error(err) {
         $scope.errors = err;
@@ -88,7 +82,7 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
         long: $scope.long,
         start_point: true
       }).then(function (res) {});
-      $scope.interval = setInterval(intervalPin, 1000); // 5 minute intervals = 300000; 10 minute intervals = 600000
+      $scope.interval = setInterval(intervalPin, 60000); // 5 minute intervals = 300000; 10 minute intervals = 600000
       flag = true;
       $scope.button = "Stop GPS Tracking"
     } else {
