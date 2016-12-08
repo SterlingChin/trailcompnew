@@ -5,7 +5,7 @@ angular.module('trail').service('mainSvc', function($http) {
   // |                      GPS Service                     |
   // |------------------------------------------------------|
 
-  this.startGPS = function(startCoords) {
+  this.startGPS = function(currentCoords) {
     var startObj = {lat: parseFloat(currentCoords.lat),
       long: parseFloat(currentCoords.long),
       start_point: true,
@@ -25,7 +25,7 @@ console.log(startObj);
     return $http.post('https://trailcompserver.herokuapp.com/setgps', setObj);
     // return $http.post('http://localhost:3000/setgps', currentCoords);
   };
-  this.stopGPS = function(endCoords) {
+  this.stopGPS = function(currentCoords) {
         var stopObj = {lat: parseFloat(currentCoords.lat),
       long: parseFloat(currentCoords.long),
       start_point: false,

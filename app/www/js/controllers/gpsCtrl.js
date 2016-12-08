@@ -13,17 +13,6 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
   $scope.button = "Start GPS Tracking";
 
-  $interval(function () {
-    geo.then(function (position) {
-        $scope.lat = position.coords.latitude;
-        $scope.long = position.coords.longitude;
-      },
-      function error(err) {
-        $scope.errors = err;
-      }
-    );
-  }, 1000);
-
   // |------------------------------------------------------|
   // |                       GPS Ping                       |
   // |------------------------------------------------------|
@@ -46,19 +35,18 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
   $scope.startPoint = function () {
     if (!flag) {
-      geo.then(function (position) {
-          $scope.lat = position.coords.latitude;
-          $scope.long = position.coords.longitude;
-        },
-        mainSvc.startGPS({
-          lat: $scope.lat,
-          long: $scope.long,
-          start_point: true
-        }).then(function (res) {}),
-        function error(err) {
-          $scope.errors = err;
-        });
-      $scope.interval = setInterval(intervalPin, 60000); // 5 minute intervals = 300000; 10 minute intervals = 600000
+    geo.then(function (position) {
+        $scope.lat = position.coords.latitude;
+        $scope.long = position.coords.longitude;
+      },
+      mainSvc.startGPS({
+        lat: $scope.lat,
+        long: $scope.long,
+      }).then(function (res) {}),
+      function error(err) {
+        $scope.errors = err;
+      });
+      $scope.interval = setInterval(intervalPin, 30000); // 5 minute intervals = 300000; 10 minute intervals = 600000
       flag = true;
       $scope.button = "Stop GPS Tracking"
     } else {
@@ -69,7 +57,6 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
         mainSvc.stopGPS({
           lat: $scope.lat,
           long: $scope.long,
-          end_point: true
         }).then(function (res) {}),
         function error(err) {
           $scope.errors = err;
