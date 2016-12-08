@@ -3,8 +3,8 @@ angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeoloca
 
   $scope.updateWeather = function () {
     geo.then(function (position) {
-        $scope.lat = position.coords.latitude;
-        $scope.long = position.coords.longitude;
+        $scope.homeLat = position.coords.latitude;
+        $scope.homeLong = position.coords.longitude;
     mainSvc.getWeather($scope.lat, $scope.long).then(function (weatherObject) {
       $scope.weatherTemp = weatherObject.currentTemp;
       $scope.weatherDesc = weatherObject.currentDesc;
