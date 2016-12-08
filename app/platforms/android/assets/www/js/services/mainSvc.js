@@ -5,22 +5,34 @@ angular.module('trail').service('mainSvc', function($http) {
   // |                      GPS Service                     |
   // |------------------------------------------------------|
 
-  this.startGPS = function(startCoords) {
-    // console.log(startCoords);
-    return $http.post("https://trailcompserver.herokuapp.com/start", startCoords);
+  this.startGPS = function(currentCoords) {
+    var startObj = {lat: parseFloat(currentCoords.lat),
+      long: parseFloat(currentCoords.long),
+      start_point: true,
+      end_point: false
+    };
+console.log(startObj);
+    return $http.post("https://trailcompserver.herokuapp.com/start", startObj);
     // return $http.post('http://localhost:3000/start', startCoords);
   };
   this.setGPS = function(currentCoords) {
-    var obj = {lat: parseFloat(currentCoords.lat),
+    var setObj = {lat: parseFloat(currentCoords.lat),
       long: parseFloat(currentCoords.long),
       start_point: false,
       end_point: false
     };
-    return $http.post('https://trailcompserver.herokuapp.com/setgps', obj);
+    console.log(setObj)
+    return $http.post('https://trailcompserver.herokuapp.com/setgps', setObj);
     // return $http.post('http://localhost:3000/setgps', currentCoords);
   };
-  this.stopGPS = function(endCoords) {
-    return $http.post('https://trailcompserver.herokuapp.com/stop', endCoords);
+  this.stopGPS = function(currentCoords) {
+        var stopObj = {lat: parseFloat(currentCoords.lat),
+      long: parseFloat(currentCoords.long),
+      start_point: false,
+      end_point: true
+    };
+    console.log(stopObj)
+    return $http.post('https://trailcompserver.herokuapp.com/stop', stopObj);
     // return $http.post('http://localhost:3000/stop', endCoords);
   };
 

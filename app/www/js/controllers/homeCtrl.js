@@ -1,4 +1,4 @@
-angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeolocation, mainSvc) {
+angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeolocation, $ionicPopup, mainSvc) {
   var geo = $cordovaGeolocation.getCurrentPosition({ frequency: 3000, timeout: 5000, enableHighAccuracy: true});
 
   $scope.updateWeather = function () {
@@ -26,4 +26,33 @@ angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeoloca
         $scope.errors = err;
       });
   };
+
+// |------------------------------------------------------|
+// |                       PopUps                         |
+// |------------------------------------------------------|
+
+  $scope.showPopup = function() {
+      $scope.data = {}
+      var myPopup = $ionicPopup.show({
+         template: '<input type = "text" ng-model = "data.model">',
+         title: 'Name Trail?',
+         scope: $scope,
+         buttons: [
+            { text: 'No' }, {
+               text: '<b>Save</b>',
+               type: 'button-positive',
+                  onTap: function(e) {
+                     if (!$scope.data.model) {
+                           e.preventDefault();
+                     } else {
+                        return $scope.data.model;
+                     }
+                  }
+            }
+         ]
+      });
+      myPopup.then(function(res) {
+         console.log('Tapped!', res);
+      });    
+   };
 });

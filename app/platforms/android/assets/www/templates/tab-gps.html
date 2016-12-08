@@ -3,11 +3,9 @@
     <ion-pane class="padding background" style="background-image: url('./img/mainBackground.jpg')">
       <div class='padding home-font' style="text-align:center; font-family:jura">
         <h3><span class='home-font'> Current Position </span></h3>
-        <p>Latitude : {{lat}} </p>
-        <p>Longitude : {{long}} </p>
-        <!--{{test}}-->
+        <p>Latitude : {{pingLat}} </p>
+        <p>Longitude : {{pingLong}} </p>
       </div>
-
 
       <div></div>
         <div>
@@ -16,7 +14,7 @@
         </button>
       </div>
       <div id="container">
-        <button class="button button-block button-dark home-font" ng-click="startPoint(); setPoint()">
+        <button class="button button-block button-dark home-font" ng-click="startPoint()">
         {{button}}
         </button>
       </div>

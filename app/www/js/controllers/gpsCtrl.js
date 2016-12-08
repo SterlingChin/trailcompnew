@@ -35,19 +35,21 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
   $scope.startPoint = function () {
     if (!flag) {
-    geo.then(function (position) {
-        $scope.lat = position.coords.latitude;
-        $scope.long = position.coords.longitude;
-      },
-      mainSvc.startGPS({
-        lat: $scope.lat,
-        long: $scope.long,
-      }).then(function (res) {}),
-      function error(err) {
-        $scope.errors = err;
-      });
+      $scope.hikeName();
+      geo.then(function (position) {
+          $scope.lat = position.coords.latitude;
+          $scope.long = position.coords.longitude;
+        },
+        mainSvc.startGPS({
+          lat: $scope.lat,
+          long: $scope.long,
+        }).then(function (res) {}),
+        function error(err) {
+          $scope.errors = err;
+        });
       $scope.interval = setInterval(intervalPin, 30000); // 5 minute intervals = 300000; 10 minute intervals = 600000
       flag = true;
+
       $scope.button = "Stop GPS Tracking"
     } else {
       geo.then(function (position) {
@@ -82,6 +84,60 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       function error(err) {
         $scope.errors = err;
       });
+  };
+
+  // |------------------------------------------------------|
+  // |                       PopUps                         |
+  // |------------------------------------------------------|
+
+  $scope.hikeName = function () {
+    $scope.data = {}
+    var myPopup = $ionicPopup.show({
+      template: 'Trail Name<input type = "text" ng-model = "data.trailName"><br> Start Point Name<input type = "text" ng-model = "data.setPinName">',
+      title: 'Name Trail?',
+      scope: $scope,
+      buttons: [{
+        text: 'No'
+      }, {
+        text: '<b>Save</b>',
+        type: 'button-positive',
+        onTap: function (e) {
+          if (!$scope.data.model) {
+            e.preventDefault();
+          } else {
+            return $scope.data.model;
+          }
+        }
+      }]
+    });
+    myPopup.then(function (res) {
+      console.log('Tapped!', res);
+    });
+  };
+
+  $scope.setPinName = function () {
+    $scope.data = {}
+    var myPopup = $ionicPopup.show({
+      template: '<input type = "text" ng-model = "data.setPinName">',
+      title: 'Name Pin?',
+      scope: $scope,
+      buttons: [{
+        text: 'No'
+      }, {
+        text: '<b>Save</b>',
+        type: 'button-positive',
+        onTap: function (e) {
+          if (!$scope.data.model) {
+            e.preventDefault();
+          } else {
+            return $scope.data.model;
+          }
+        }
+      }]
+    });
+    myPopup.then(function (res) {
+      console.log('Tapped!', res);
+    });
   };
 });
 
