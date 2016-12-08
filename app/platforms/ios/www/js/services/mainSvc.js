@@ -11,7 +11,12 @@ angular.module('trail').service('mainSvc', function($http) {
     // return $http.post('http://localhost:3000/start', startCoords);
   };
   this.setGPS = function(currentCoords) {
-    return $http.post('https://trailcompserver.herokuapp.com/setgps', currentCoords);
+    var obj = {lat: parseFloat(currentCoords.lat),
+      long: parseFloat(currentCoords.long),
+      start_point: false,
+      end_point: false
+    };
+    return $http.post('https://trailcompserver.herokuapp.com/setgps', obj);
     // return $http.post('http://localhost:3000/setgps', currentCoords);
   };
   this.stopGPS = function(endCoords) {
@@ -70,9 +75,10 @@ console.log(weatherObject);
 
 
 // |------------------------------------------------------|
-// |                     Map Service                      |
+// |                 DataBase Functions                   |
 // |------------------------------------------------------|
 
+this.setPins
 
 
 });
