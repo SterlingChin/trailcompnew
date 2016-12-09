@@ -76,6 +76,11 @@ angular.module('trail', ['ionic', 'ngCordova'])
   templateUrl: 'templates/tab-yourdata.html'
 })
 
+.state('aboutapp', {
+  url: '/aboutapp',
+  templateUrl: 'templates/aboutApp.html'
+})
+
 .state('thedevs', {
   url: '/thedevs',
   templateUrl: 'templates/tab-developer.html'

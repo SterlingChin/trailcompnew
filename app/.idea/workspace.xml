@@ -1037,17 +1037,11 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../www/templates/tab-map.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../www/templates/tabs.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server" afterPath="$PROJECT_DIR$/../server" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers/gpsCtrl.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers/gpsCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers/homeCtrl.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers/homeCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers/userCtrl.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers/userCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/services/mainSvc.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/services/mainSvc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-dash.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-dash.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-gps.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-gps.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-developer.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-developer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-info.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-user.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tab-user.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/userCtrl.js" afterPath="$PROJECT_DIR$/www/js/controllers/userCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services/mainSvc.js" afterPath="$PROJECT_DIR$/www/js/services/mainSvc.js" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
