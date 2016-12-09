@@ -42,3 +42,9 @@ map {
   padding: 10px;
 }
 
+#dev-photo {
+  border-radius: 10%;
+  width: 50%;
+
+}
+

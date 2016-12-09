@@ -1,7 +1,7 @@
 angular.module('trail', ['ionic', 'ngCordova'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+.run(function ($ionicPlatform) {
+  $ionicPlatform.ready(function () {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -13,13 +13,13 @@ angular.module('trail', ['ionic', 'ngCordova'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html'
+    })
 
   .state('tab.dash', {
     url: '/dash',
@@ -59,32 +59,28 @@ angular.module('trail', ['ionic', 'ngCordova'])
     }
   })
 
-    .state('tab.user', {
-    url: '/user',
-    views: {
-      'tab-user': {
-        templateUrl: 'templates/tab-user.html',
+  .state('newuser', {
+      url: '/user',
+      templateUrl: 'templates/tab-user.html',
         controller:'userCtrl'
-      }
-    }
-  })
+})
 
-      .state('usinggps', {
-    url: '/usinggps',
-    templateUrl: 'templates/tab-usinggps.html',
-    controller: 'contentCtrl'
-    })
+.state('usinggps', {
+  url: '/usinggps',
+  templateUrl: 'templates/tab-usinggps.html',
+  controller: 'contentCtrl'
+})
 
-         .state('yourdata', {
-    url: '/yourdata',
-    templateUrl: 'templates/tab-yourdata.html'
-    })
+.state('yourdata', {
+  url: '/yourdata',
+  templateUrl: 'templates/tab-yourdata.html'
+})
 
-    .state('thedevs', {
-    url: '/thedevs',
-    templateUrl: 'templates/tab-developer.html'
-    });
+.state('thedevs', {
+  url: '/thedevs',
+  templateUrl: 'templates/tab-developer.html'
+});
 
-  $urlRouterProvider.otherwise('/tab/dash');
+$urlRouterProvider.otherwise('/tab/dash');
 
 });

@@ -87,10 +87,16 @@ console.log(weatherObject);
 
 
 // |------------------------------------------------------|
-// |                 DataBase Functions                   |
+// |                     New User DB                      |
 // |------------------------------------------------------|
 
-this.setPins
+  this.newUser = function(newUser) {
+    var newUserObj = {
+    };
+console.log(startObj);
+    return $http.post("https://trailcompserver.herokuapp.com/start", newUserObj);
+    // return $http.post('http://localhost:3000/start', startCoords);
+  };
 
 
 });
