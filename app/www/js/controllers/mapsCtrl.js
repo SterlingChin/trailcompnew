@@ -18,15 +18,11 @@ var latLng = new google.maps.LatLng(40.22622305, -111.6608091);
   //     return;
   //   }
 
-  //   $scope.loading = $ionicLoading.show({
-  //     content: 'Getting current location...',
-  //     showBackdrop: false
-  //   });
 
   //   $cordovaGeolocation.getCurrentPosition(function (pos) {
   //     console.log('Got pos', pos);
   //     $scope.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-  //     $scope.loading.hide();
+
   //   }, function (error) {
   //     alert('Unable to get location: ' + error.message);
   //   });
@@ -45,7 +41,6 @@ var latLng = new google.maps.LatLng(40.22622305, -111.6608091);
     google.maps.event.addListener(marker, 'click', function () {
       infoWindow.open($scope.map, marker);
     });
-
-  });
-};
+  })
+  };
 });

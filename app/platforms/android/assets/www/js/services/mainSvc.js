@@ -43,8 +43,8 @@ console.log(startObj);
   this.getWeather = function(lat, long) {
     return $http({
       method: 'GET',
-      // url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=40.22&lon=-111.66&APPID=e81bd2ae54609c9106d55df519afe223'
-      url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + long + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+      url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=40.22&lon=-111.66&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      // url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + long + '&APPID=4c175e9132fa4abe35a8498d5504a8e0'
     }).then(function(response) {
       var weatherObject = {};
       if (response.status === 200) {
@@ -66,8 +66,8 @@ console.log(weatherObject);
   this.getForecast = function(lat, long) {
     return $http({
       method: 'GET',
-      // url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=40.22&lon=-111.66&cnt=3&APPID=e81bd2ae54609c9106d55df519afe223'
-      url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=' + lat + '&lon=' + long + '&cnt=3&APPID=e81bd2ae54609c9106d55df519afe223'
+      url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=40.22&lon=-111.66&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      // url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=' + lat + '&lon=' + long + '&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
     }).then(function(response) {
       var forecastObject = {};
       var data = response.data.list;

@@ -11,7 +11,7 @@ angular.module('trail').directive('map', function() {
         var mapOptions = {
           // center: new google.maps.LatLng($scope.mapLat, $scope.mapLong),
           center: new google.maps.LatLng(40.22622305, -111.6608091),
-          zoom: 16,
+          zoom: 20,
           mapTypeId: google.maps.MapTypeId.SATELLITE
         };
         var map = new google.maps.Map($element[0], mapOptions);

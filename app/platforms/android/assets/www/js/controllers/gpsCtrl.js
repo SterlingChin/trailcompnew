@@ -35,14 +35,14 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
   $scope.startPoint = function () {
     if (!flag) {
-      $scope.hikeName();
+      // $scope.hikeName();
       geo.then(function (position) {
           $scope.lat = position.coords.latitude;
           $scope.long = position.coords.longitude;
         },
         mainSvc.startGPS({
-          lat: $scope.lat,
-          long: $scope.long,
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
         }).then(function (res) {}),
         function error(err) {
           $scope.errors = err;
@@ -111,7 +111,6 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       }]
     });
     myPopup.then(function (res) {
-      console.log('Tapped!', res);
     });
   };
 
@@ -127,10 +126,14 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
         text: '<b>Save</b>',
         type: 'button-positive',
         onTap: function (e) {
-          if (!$scope.data.model) {
+            //  console.log(e.target.value);
+            console.log($scope.data.setPinName);
+            // console.log(scope.data.model);
+          if (!$scope.data.setPinName) {
             e.preventDefault();
           } else {
-            return $scope.data.model;
+         
+            return $scope.data.setPinName;
           }
         }
       }]
