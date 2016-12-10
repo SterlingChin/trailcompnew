@@ -39,13 +39,13 @@ console.log(startObj);
     // return $http.post('http://localhost:3000/stop', endCoords);
   };
 
-  this.hikeName = function(trailName) {
-    var trailName = { hike_name: scope.data.trailName,
-    };
-    console.log(setObj)
-    return $http.post('https://trailcompserver.herokuapp.com/trailName', trailName);
-    // return $http.post('http://localhost:3000/setgps', currentCoords);
-  };
+  // this.hikeName = function(trailName) {
+  //   var trailName = { hike_name: scope.data.trailName,
+  //   };
+  //   console.log(setObj)
+  //   return $http.post('https://trailcompserver.herokuapp.com/trailName', trailName);
+  //   // return $http.post('http://localhost:3000/setgps', currentCoords);
+  // };
   // |------------------------------------------------------|
   // |               Current Weather Service                |
   // |------------------------------------------------------|

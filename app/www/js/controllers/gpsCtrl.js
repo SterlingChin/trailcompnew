@@ -56,7 +56,6 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
             }).then(function (res) {})
           };
         },
-
         function error(err) {
           $scope.errors = err;
         });
