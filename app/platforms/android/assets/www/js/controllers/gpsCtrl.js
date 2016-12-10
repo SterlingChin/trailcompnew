@@ -10,6 +10,14 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
     flag = false;
   // flag true  = tracking started
   // flag false = tracking stopped
+  $scope.interval = function () {
+    if (flag) {
+      setTimeout(function () {
+        intervalPin();
+        $scope.interval();
+      }, 10000);
+    };
+  }; // 5 minute intervals = 300000; 10 minute intervals = 600000
 
   $scope.button = "Start GPS Tracking";
 
@@ -35,26 +43,31 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
   $scope.startPoint = function () {
     if (!flag) {
-      // $scope.hikeName();
       geo.then(function (position) {
-          $scope.lat = position.coords.latitude;
-          $scope.long = position.coords.longitude;
+          if (position.coords.latitude == null || position.coords.longitude == null) {
+            $scope.startPoint();
+          } else {
+            // $scope.hikeName();
+            $scope.lat = $scope.pinglat = position.coords.latitude;
+            $scope.long = $scope.pingLong = position.coords.longitude;
+            mainSvc.startGPS({
+              lat: $scope.lat,
+              long: $scope.long,
+            }).then(function (res) {})
+          };
         },
-        mainSvc.startGPS({
-          lat: position.coords.latitude,
-          long: position.coords.longitude,
-        }).then(function (res) {}),
         function error(err) {
           $scope.errors = err;
         });
-      $scope.interval = setInterval(intervalPin, 30000); // 5 minute intervals = 300000; 10 minute intervals = 600000
       flag = true;
-
+      $scope.interval();
+      $scope.gpsPing();
       $scope.button = "Stop GPS Tracking"
+      $scope.hikeName();
     } else {
       geo.then(function (position) {
-          $scope.lat = position.coords.latitude;
-          $scope.long = position.coords.longitude;
+          $scope.lat = $scope.pinglat = position.coords.latitude;
+          $scope.long = $scope.pingLong = position.coords.longitude;
         },
         mainSvc.stopGPS({
           lat: $scope.lat,
@@ -63,7 +76,7 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
         function error(err) {
           $scope.errors = err;
         });
-      clearInterval($scope.interval);
+      clearTimeout($scope.interval);
       flag = false;
       $scope.button = "Start GPS Tracking"
     };
@@ -92,9 +105,9 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
 
   $scope.hikeName = function () {
     $scope.data = {}
-    var myPopup = $ionicPopup.show({
-      template: 'Trail Name<input type = "text" ng-model = "data.trailName"><br> Start Point Name<input type = "text" ng-model = "data.setPinName">',
-      title: 'Name Trail?',
+    var trailName = $ionicPopup.show({
+      template: '<input type = "text" ng-model = "data.trailName">',
+      title: 'Name this Trail:',
       scope: $scope,
       buttons: [{
         text: 'No'
@@ -102,21 +115,23 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
         text: '<b>Save</b>',
         type: 'button-positive',
         onTap: function (e) {
-          if (!$scope.data.model) {
+          if (!$scope.data.trailName) {
             e.preventDefault();
           } else {
-            return $scope.data.model;
+            return $scope.data.trailName;
           }
         }
       }]
     });
-    myPopup.then(function (res) {
+    trailName.then(function (res) {
+    
+      console.log('name', res);
     });
   };
 
   $scope.setPinName = function () {
     $scope.data = {}
-    var myPopup = $ionicPopup.show({
+    var setPinPopup = $ionicPopup.show({
       template: '<input type = "text" ng-model = "data.setPinName">',
       title: 'Name Pin?',
       scope: $scope,
@@ -126,19 +141,16 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
         text: '<b>Save</b>',
         type: 'button-positive',
         onTap: function (e) {
-            //  console.log(e.target.value);
-            console.log($scope.data.setPinName);
-            // console.log(scope.data.model);
           if (!$scope.data.setPinName) {
             e.preventDefault();
           } else {
-         
+$scope.setPoint();
             return $scope.data.setPinName;
           }
         }
       }]
     });
-    myPopup.then(function (res) {
+    setPinPopup.then(function (res) {
       console.log('Tapped!', res);
     });
   };

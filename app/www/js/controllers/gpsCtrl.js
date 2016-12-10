@@ -124,8 +124,8 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       }]
     });
     trailName.then(function (res) {
-    
-      console.log('name', res);
+      mainSvc.hikeName(res);
+      console.log('Hike name:', res);
     });
   };
 

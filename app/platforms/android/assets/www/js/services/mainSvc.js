@@ -15,9 +15,11 @@ console.log(startObj);
     return $http.post("https://trailcompserver.herokuapp.com/start", startObj);
     // return $http.post('http://localhost:3000/start', startCoords);
   };
+
   this.setGPS = function(currentCoords) {
     var setObj = {lat: parseFloat(currentCoords.lat),
       long: parseFloat(currentCoords.long),
+      // manual_pin: $scope.data.setPinName,
       start_point: false,
       end_point: false
     };
@@ -25,6 +27,7 @@ console.log(startObj);
     return $http.post('https://trailcompserver.herokuapp.com/setgps', setObj);
     // return $http.post('http://localhost:3000/setgps', currentCoords);
   };
+
   this.stopGPS = function(currentCoords) {
         var stopObj = {lat: parseFloat(currentCoords.lat),
       long: parseFloat(currentCoords.long),
@@ -36,6 +39,13 @@ console.log(startObj);
     // return $http.post('http://localhost:3000/stop', endCoords);
   };
 
+  // this.hikeName = function(trailName) {
+  //   var trailName = { hike_name: scope.data.trailName,
+  //   };
+  //   console.log(setObj)
+  //   return $http.post('https://trailcompserver.herokuapp.com/trailName', trailName);
+  //   // return $http.post('http://localhost:3000/setgps', currentCoords);
+  // };
   // |------------------------------------------------------|
   // |               Current Weather Service                |
   // |------------------------------------------------------|
@@ -43,8 +53,8 @@ console.log(startObj);
   this.getWeather = function(lat, long) {
     return $http({
       method: 'GET',
-      url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=40.22&lon=-111.66&APPID=4c175e9132fa4abe35a8498d5504a8e0'
-      // url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + long + '&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      // url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=40.22&lon=-111.66&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + long + '&APPID=4c175e9132fa4abe35a8498d5504a8e0'
     }).then(function(response) {
       var weatherObject = {};
       if (response.status === 200) {
@@ -66,8 +76,8 @@ console.log(weatherObject);
   this.getForecast = function(lat, long) {
     return $http({
       method: 'GET',
-      url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=40.22&lon=-111.66&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
-      // url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=' + lat + '&lon=' + long + '&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      // url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=40.22&lon=-111.66&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=' + lat + '&lon=' + long + '&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
     }).then(function(response) {
       var forecastObject = {};
       var data = response.data.list;
@@ -85,19 +95,26 @@ console.log(weatherObject);
     });
   };
 
-
 // |------------------------------------------------------|
 // |                     New User DB                      |
 // |------------------------------------------------------|
 
-  this.newUser = function(newUser) {
-    var newUserObj = {
-    };
-console.log(startObj);
-    return $http.post("https://trailcompserver.herokuapp.com/start", newUserObj);
-    // return $http.post('http://localhost:3000/start', startCoords);
-  };
-
+//   this.newUser = function(newUser) {
+//     var newUserObj = {
+//       username:
+//       first_name:
+//       last_name:
+//       email:
+//       address:
+//       city:
+//       state:
+//       zip:
+//       phone:
+//     };
+// console.log(startObj);
+//     return $http.post("https://trailcompserver.herokuapp.com/start", newUserObj);
+//     // return $http.post('http://localhost:3000/start', startCoords);
+//   };
 
 });
 // |------------------------------------------------------|
