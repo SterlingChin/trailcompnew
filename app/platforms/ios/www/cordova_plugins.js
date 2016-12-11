@@ -1,73 +1,64 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "id": "cordova-plugin-console.console",
         "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
-        "pluginId": "cordova-plugin-console",
+        "id": "cordova-plugin-console.console",
         "clobbers": [
             "console"
         ]
     },
     {
-        "id": "cordova-plugin-console.logger",
         "file": "plugins/cordova-plugin-console/www/logger.js",
-        "pluginId": "cordova-plugin-console",
+        "id": "cordova-plugin-console.logger",
         "clobbers": [
             "cordova.logger"
         ]
     },
     {
-        "id": "cordova-plugin-device.device",
         "file": "plugins/cordova-plugin-device/www/device.js",
-        "pluginId": "cordova-plugin-device",
+        "id": "cordova-plugin-device.device",
         "clobbers": [
             "device"
         ]
     },
     {
-        "id": "cordova-plugin-geolocation.Coordinates",
         "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
-        "pluginId": "cordova-plugin-geolocation",
+        "id": "cordova-plugin-geolocation.Coordinates",
         "clobbers": [
             "Coordinates"
         ]
     },
     {
-        "id": "cordova-plugin-geolocation.PositionError",
         "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-        "pluginId": "cordova-plugin-geolocation",
+        "id": "cordova-plugin-geolocation.PositionError",
         "clobbers": [
             "PositionError"
         ]
     },
     {
-        "id": "cordova-plugin-geolocation.Position",
         "file": "plugins/cordova-plugin-geolocation/www/Position.js",
-        "pluginId": "cordova-plugin-geolocation",
+        "id": "cordova-plugin-geolocation.Position",
         "clobbers": [
             "Position"
         ]
     },
     {
-        "id": "cordova-plugin-geolocation.geolocation",
         "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
-        "pluginId": "cordova-plugin-geolocation",
+        "id": "cordova-plugin-geolocation.geolocation",
         "clobbers": [
             "navigator.geolocation"
         ]
     },
     {
-        "id": "cordova-plugin-splashscreen.SplashScreen",
         "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "pluginId": "cordova-plugin-splashscreen",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
         "clobbers": [
             "navigator.splashscreen"
         ]
     },
     {
-        "id": "ionic-plugin-keyboard.keyboard",
         "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
-        "pluginId": "ionic-plugin-keyboard",
+        "id": "ionic-plugin-keyboard.keyboard",
         "clobbers": [
             "cordova.plugins.Keyboard"
         ],
@@ -77,13 +68,13 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-console": "1.0.4",
     "cordova-plugin-device": "1.1.3",
     "cordova-plugin-geolocation": "2.4.0",
     "cordova-plugin-splashscreen": "4.0.0",
     "cordova-plugin-whitelist": "1.3.0",
-    "ionic-plugin-keyboard": "2.2.1"
-};
+    "ionic-plugin-keyboard": "2.2.1",
+    "cordova-plugin-compat": "1.1.0"
+}
 // BOTTOM OF METADATA
 });

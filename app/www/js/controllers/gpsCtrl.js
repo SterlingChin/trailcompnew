@@ -8,8 +8,7 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       $scope.setPoint();
     },
     flag = false;
-  // flag true  = tracking started
-  // flag false = tracking stopped
+
   $scope.interval = function () {
     if (flag) {
       setTimeout(function () {
@@ -62,8 +61,9 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       flag = true;
       $scope.interval();
       $scope.gpsPing();
-      $scope.button = "Stop GPS Tracking"
       $scope.hikeName();
+      $scope.button = "Stop GPS Tracking"
+
     } else {
       geo.then(function (position) {
           $scope.lat = $scope.pinglat = position.coords.latitude;
@@ -85,6 +85,7 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
   // |------------------------------------------------------|
   // |                   Set Manual Pin                     |
   // |------------------------------------------------------|
+
   $scope.setPoint = function () {
     geo.then(function (position) {
         $scope.lat = position.coords.latitude;
@@ -144,7 +145,7 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
           if (!$scope.data.setPinName) {
             e.preventDefault();
           } else {
-$scope.setPoint();
+            $scope.setPoint();
             return $scope.data.setPinName;
           }
         }
@@ -154,6 +155,15 @@ $scope.setPoint();
       console.log('Tapped!', res);
     });
   };
+
+  // |------------------------------------------------------|
+  // |                Device Orientation                    |
+  // |------------------------------------------------------|
+
+
+
+
+
 });
 
 // |------------------------------------------------------|

@@ -89,6 +89,21 @@ angular.module('trail', ['ionic', 'ngCordova'])
 .state('thedevs', {
   url: '/thedevs',
   templateUrl: 'templates/tab-developer.html'
+})
+
+.state('mentors', {
+  url: '/thementors',
+  templateUrl: 'templates/mentors.html'
+})
+
+.state('mentors1', {
+  url: '/thementors',
+  templateUrl: 'templates/mentors1.html'
+})
+
+.state('mentors2', {
+  url: '/thementors',
+  templateUrl: 'templates/mentors2.html'
 });
 
 $urlRouterProvider.otherwise('/tab/dash');
