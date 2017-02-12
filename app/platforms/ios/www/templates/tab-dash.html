@@ -3,38 +3,39 @@
     <ion-pane class="padding background" style="background-image: url('./img/mainBackground.jpg')">
       <div>
         <div class="col col-center text-center">
-          <h1 class="home-font">Trail Companion</h1><br><br><br>
+          <h1 class="home-font">Trail Companion</h1><br>
         </div>
         <div class="col col-center text-center home-font help-background">
-          <h4 class="home-font">Current Weather</h4>
+          <h3 class="home-font">Current Weather</h3>
+          <h2 class="home-font">{{weatherTemp | number: 0}}°</h2>
           <div class="home-font">
-            <span class="large-weather">{{weatherTemp | number: 0}}°</span><br>
             <span>windspeed: {{weatherSpeed}}mph</span><br>
             <span>humidity: {{weatherHum}}%</span><br>
           </div>
           <div class="col col-center text-center home-font">
-            <div class="home-font">Forecast</div>
+            <div><h4  class="home-font">Forecast</h4></div>
             <div class='row'>
               <div class='col'>
-                <u>Today</u><br> high: {{forecastTempHigh | number: 0}}°<br> low: {{forecastTempLow | number: 0}}°<br> {{weatherDesc}}
+                <h4 class="home-font"><u>Today</u></h4>
+                high: {{forecastTempHigh | number: 0}}°<br> 
+                low: {{forecastTempLow | number: 0}}°<br> 
+                {{weatherDesc}}
                 <br>
               </div>
               <div class='col'>
-                <u>Tomorrow</u><br> high: {{forecastTempHigh1 | number: 0}}°<br> low: {{forecastTempLow1 | number: 0}}°<br>                {{forecastDesc1}}
+                <h4 class='home-font'><u>Tomorrow</u></h4>
+                high: {{forecastTempHigh1 | number: 0}}°<br> 
+                low: {{forecastTempLow1 | number: 0}}°<br>                
+                {{forecastDesc1}}
                 <br>
               </div>
             </div>
           </div>
-          <div>Latitude: {{lat}} <br>
-          Longitude: {{long}}<br>
-          </div>
+          <!--<div>Latitude: {{homeLat}} <br>
+          Longitude: {{homeLong}}<br>
+          </div>-->
         </div>
       </div>
-      <!--<div>
-        <button class="button button-block button-dark home-font" ng-click='gpsHomePing()'>
-        Ping Location
-        </button>
-      </div>-->
       <div>
         <button class="button button-block button-dark home-font" ng-click='updateWeather()'>
         Update Weather

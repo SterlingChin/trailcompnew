@@ -14,7 +14,7 @@ angular.module('trail').controller('gpsCtrl', function ($scope, $cordovaGeolocat
       setTimeout(function () {
         intervalPin();
         $scope.interval();
-      }, 10000);
+      }, 15000);
     };
   }; // 5 minute intervals = 300000; 10 minute intervals = 600000
 

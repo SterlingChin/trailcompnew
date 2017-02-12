@@ -1,36 +1,33 @@
 <ion-view view-title='GPS Tracking' hide-nav-bar="true">
   <ion-content>
     <ion-pane class="padding background" style="background-image: url('./img/mainBackground.jpg')">
-      <div class='padding home-font' style="text-align:center; font-family:jura">
+      <div class='padding home-font' style="text-align:center">
         <h3><span class='home-font'> Current Position </span></h3>
-        <p>Latitude : {{lat}} </p>
-        <p>Longitude : {{long}} </p>
-        <!--{{test}}-->
+        <h4 class='home-font'>Latitude : {{pingLat}} </h4>
+        <h4 class='home-font'>Longitude : {{pingLong}} </h4>
       </div>
-
-
       <div></div>
-        <div>
-        <button class="button button-block button-dark home-font"  ng-click="gpsPing()">
+      <div>
+        <button class="button button-block button-dark home-font" ng-click="gpsPing()">
         Ping GPS
         </button>
       </div>
-      <div id="container">
-        <button class="button button-block button-dark home-font" ng-click="startPoint(); setPoint()">
+      <div>
+        <button class="button button-block button-dark home-font" ng-click="startPoint()">
         {{button}}
         </button>
       </div>
-      <div id="container">
-        <button class="button button-block button-dark home-font" ng-click="setPoint()">
+      <div>
+        <button class="button button-block button-dark home-font" ng-click="setPinName()">
           Set Manual Pin
         </button>
       </div>
       <div id="container">
-        <button class="button button-block button-dark home-font" ui-sref="app.gallery">
+        <button class="button button-block button-dark home-font" ui-sref="tab.map">
           View Current Map
         </button>
       </div>
-        <a ui-sref="usinggps" class="button button-block button-dark home-font">
+      <a ui-sref="usinggps" class="button button-block button-dark home-font">
           Using GPS</a>
     </ion-pane>
   </ion-content>

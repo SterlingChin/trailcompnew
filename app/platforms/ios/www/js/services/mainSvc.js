@@ -5,25 +5,47 @@ angular.module('trail').service('mainSvc', function($http) {
   // |                      GPS Service                     |
   // |------------------------------------------------------|
 
-  this.startGPS = function(startCoords) {
-    // console.log(startCoords);
-    return $http.post("https://trailcompserver.herokuapp.com/start", startCoords);
+  this.startGPS = function(currentCoords) {
+    var startObj = {lat: parseFloat(currentCoords.lat),
+      long: parseFloat(currentCoords.long),
+      start_point: true,
+      end_point: false
+    };
+console.log(startObj);
+    return $http.post("https://trailcompserver.herokuapp.com/start", startObj);
     // return $http.post('http://localhost:3000/start', startCoords);
   };
+
   this.setGPS = function(currentCoords) {
-    var obj = {lat: parseFloat(currentCoords.lat),
+    var setObj = {lat: parseFloat(currentCoords.lat),
       long: parseFloat(currentCoords.long),
+      // manual_pin: $scope.data.setPinName,
       start_point: false,
       end_point: false
     };
-    return $http.post('https://trailcompserver.herokuapp.com/setgps', obj);
+    console.log(setObj)
+    return $http.post('https://trailcompserver.herokuapp.com/setgps', setObj);
     // return $http.post('http://localhost:3000/setgps', currentCoords);
   };
-  this.stopGPS = function(endCoords) {
-    return $http.post('https://trailcompserver.herokuapp.com/stop', endCoords);
+
+  this.stopGPS = function(currentCoords) {
+        var stopObj = {lat: parseFloat(currentCoords.lat),
+      long: parseFloat(currentCoords.long),
+      start_point: false,
+      end_point: true
+    };
+    console.log(stopObj)
+    return $http.post('https://trailcompserver.herokuapp.com/stop', stopObj);
     // return $http.post('http://localhost:3000/stop', endCoords);
   };
 
+  this.hikeName = function(hikeName) {
+    var trailName = { hike_name: hikeName,
+    };
+    console.log(trailName)
+    return $http.post('https://trailcompserver.herokuapp.com/hikeName', trailName);
+    // return $http.post('http://localhost:3000/setgps', currentCoords);
+  };
   // |------------------------------------------------------|
   // |               Current Weather Service                |
   // |------------------------------------------------------|
@@ -31,8 +53,8 @@ angular.module('trail').service('mainSvc', function($http) {
   this.getWeather = function(lat, long) {
     return $http({
       method: 'GET',
-      // url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=40.22&lon=-111.66&APPID=e81bd2ae54609c9106d55df519afe223'
-      url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + long + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+      url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=40.22&lon=-111.66&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      // url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + long + '&APPID=4c175e9132fa4abe35a8498d5504a8e0'
     }).then(function(response) {
       var weatherObject = {};
       if (response.status === 200) {
@@ -54,8 +76,8 @@ console.log(weatherObject);
   this.getForecast = function(lat, long) {
     return $http({
       method: 'GET',
-      // url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=40.22&lon=-111.66&cnt=3&APPID=e81bd2ae54609c9106d55df519afe223'
-      url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=' + lat + '&lon=' + long + '&cnt=3&APPID=e81bd2ae54609c9106d55df519afe223'
+      url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=40.22&lon=-111.66&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
+      // url: 'http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&lat=' + lat + '&lon=' + long + '&cnt=3&APPID=4c175e9132fa4abe35a8498d5504a8e0'
     }).then(function(response) {
       var forecastObject = {};
       var data = response.data.list;
@@ -73,13 +95,26 @@ console.log(weatherObject);
     });
   };
 
-
 // |------------------------------------------------------|
-// |                 DataBase Functions                   |
+// |                     New User DB                      |
 // |------------------------------------------------------|
 
-this.setPins
-
+//   this.newUser = function(newUser) {
+//     var newUserObj = {
+//       username:
+//       first_name:
+//       last_name:
+//       email:
+//       address:
+//       city:
+//       state:
+//       zip:
+//       phone:
+//     };
+// console.log(startObj);
+//     return $http.post("https://trailcompserver.herokuapp.com/start", newUserObj);
+//     // return $http.post('http://localhost:3000/start', startCoords);
+//   };
 
 });
 // |------------------------------------------------------|

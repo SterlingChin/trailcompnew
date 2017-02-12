@@ -2,9 +2,8 @@
   <ion-content>
     <ion-pane class="padding background" style="background-image: url('./img/mainBackground.jpg')">
       <div style='text-align:center'>
-       <h2 class='home-font'>New User</h2>
+        <h2 class='home-font'>New User</h2>
       </div>
-
       <div class="list list-inset">
         <label class="item item-input">
           <span class="input-label">Username</span>
@@ -22,11 +21,30 @@
           <span class="input-label">Email</span>
           <input type="text" placeholder="Email">
         </label>
+        <label class="item item-input">
+          <span class="input-label">Address</span>
+          <input type="text" placeholder="Address">
+        </label> <label class="item item-input">
+          <span class="input-label">City</span>
+          <input type="text" placeholder="City">
+        </label> <label class="item item-input">
+          <span class="input-label">State</span>
+          <input type="text" placeholder="State">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Zip</span>
+          <input type="text" placeholder="Zip">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Phone</span>
+          <input type="text" placeholder="Phone">
+        </label>
       </div>
       <div>
-        <button class='button button-block button-dark home-font' ui-sref='app.gallery' ng-click'newUser()'>
+        <button class='button button-block button-dark home-font' ui-sref='app.gallery' ng-click 'newUser()'>
           Submit
         </button>
+              <button class="button button-block button-dark home-font icon-left ion-chevron-left" ui-sref="tab.info">Back</button>
       </div>
     </ion-pane>
   </ion-content>

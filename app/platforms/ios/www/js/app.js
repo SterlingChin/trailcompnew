@@ -1,7 +1,7 @@
 angular.module('trail', ['ionic', 'ngCordova'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+.run(function ($ionicPlatform) {
+  $ionicPlatform.ready(function () {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -13,13 +13,17 @@ angular.module('trail', ['ionic', 'ngCordova'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($ionicConfigProvider){
+  $ionicConfigProvider.scrolling.jsScrolling(false);
+})
+
+.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html'
+    })
 
   .state('tab.dash', {
     url: '/dash',
@@ -45,7 +49,8 @@ angular.module('trail', ['ionic', 'ngCordova'])
     url: '/map',
     views: {
       'tab-map': {
-        templateUrl: 'templates/tab-map.html'
+        templateUrl: 'templates/tab-map.html',
+        controller: 'mapsCtrl'
       }
     }
   })
@@ -59,32 +64,48 @@ angular.module('trail', ['ionic', 'ngCordova'])
     }
   })
 
-    .state('tab.user', {
-    url: '/user',
-    views: {
-      'tab-user': {
-        templateUrl: 'templates/tab-user.html',
+  .state('newuser', {
+      url: '/user',
+      templateUrl: 'templates/tab-user.html',
         controller:'userCtrl'
-      }
-    }
-  })
+})
 
-      .state('usinggps', {
-    url: '/usinggps',
-    templateUrl: 'templates/tab-usinggps.html',
-    controller: 'contentCtrl'
-    })
+.state('usinggps', {
+  url: '/usinggps',
+  templateUrl: 'templates/tab-usinggps.html',
+  controller: 'contentCtrl'
+})
 
-         .state('yourdata', {
-    url: '/yourdata',
-    templateUrl: 'templates/tab-yourdata.html'
-    })
+.state('yourdata', {
+  url: '/yourdata',
+  templateUrl: 'templates/tab-yourdata.html'
+})
 
-    .state('thedevs', {
-    url: '/thedevs',
-    templateUrl: 'templates/tab-developer.html'
-    });
+.state('aboutapp', {
+  url: '/aboutapp',
+  templateUrl: 'templates/aboutApp.html'
+})
 
-  $urlRouterProvider.otherwise('/tab/dash');
+.state('thedevs', {
+  url: '/thedevs',
+  templateUrl: 'templates/tab-developer.html'
+})
+
+.state('mentors', {
+  url: '/thementors',
+  templateUrl: 'templates/mentors.html'
+})
+
+.state('mentors1', {
+  url: '/thementors',
+  templateUrl: 'templates/mentors1.html'
+})
+
+.state('mentors2', {
+  url: '/thementors',
+  templateUrl: 'templates/mentors2.html'
+});
+
+$urlRouterProvider.otherwise('/tab/dash');
 
 });

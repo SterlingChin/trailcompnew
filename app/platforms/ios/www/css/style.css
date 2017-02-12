@@ -20,7 +20,7 @@
 map {
   width: 100%;
   height: 100%;
-  /*display: block;*/
+  display: block;
 }
 
 .scroll {
@@ -40,5 +40,11 @@ map {
 
 .padding {
   padding: 10px;
+}
+
+#dev-photo {
+  border-radius: 10%;
+  width: 50%;
+
 }
 

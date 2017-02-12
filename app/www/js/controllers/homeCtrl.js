@@ -6,9 +6,9 @@ angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeoloca
   });
 
   $scope.updateWeather = function () {
-    geo.then(function (position) {
-        $scope.homeLat = position.coords.latitude;
-        $scope.homeLong = position.coords.longitude;
+    // geo.then(function (position) {
+    //     $scope.homeLat = position.coords.latitude;
+    //     $scope.homeLong = position.coords.longitude;
         mainSvc.getWeather($scope.homeLat, $scope.homeLong).then(function (weatherObject) {
           $scope.weatherTemp = weatherObject.currentTemp;
           $scope.weatherDesc = weatherObject.currentDesc;
@@ -25,9 +25,9 @@ angular.module('trail').controller('homeCtrl', function ($scope, $cordovaGeoloca
           $scope.forecastTempLow2 = forecastObject.tempLow2;
           $scope.forecastDesc2 = forecastObject.desc2;
         });
-      },
-      function error(err) {
-        $scope.errors = err;
-      });
+      // },
+      // function error(err) {
+      //   $scope.errors = err;
+      // });
   };
 });
